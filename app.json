@@ -1,11 +1,11 @@
 {
 	"expo": {
-		"name": "expo-template",
-		"slug": "expo-template",
+		"name": "genius",
+		"slug": "genius",
 		"version": "1.0.0",
 		"orientation": "portrait",
 		"icon": "./assets/images/icon.png",
-		"scheme": "expo-template",
+		"scheme": "genius",
 		"userInterfaceStyle": "automatic",
 		"newArchEnabled": true,
 		"splash": {
