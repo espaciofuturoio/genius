@@ -5,7 +5,7 @@ import path from 'node:path';
 // Define the source and target file paths
 const sourceFile = path.join(__dirname, 'icon.png');
 const targetFiles = [
-    'adaptative-icon.png',
+    'adaptive-icon.png',
     'favicon.png',
     'splash.png'
 ];

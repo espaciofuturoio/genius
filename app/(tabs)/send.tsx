@@ -17,7 +17,7 @@ export default function SendPage() {
 				setIsFullScreen(false);
 				setIsActive(false);
 			};
-		}, [setIsTabBarVisible, setIsFullScreen, setIsActive])
+		}, [setIsTabBarVisible, setIsFullScreen])
 	);
 	if (!isActive) return null
 	return <SkiaCanvasSnowForest />;
