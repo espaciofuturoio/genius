@@ -19,6 +19,7 @@ export const BaseSkiaCanvas = ({
   renderBodies: (engine: Engine) => React.ReactNode
   engine: Engine
 }) => {
+  "use no memo";
   const [, setTick] = useState([])
 
   const tick = useCallback(() => {
