@@ -3,19 +3,22 @@ import { DesktopHeader } from "@/components/layout/desktop-header";
 import { Box } from "@/components/ui/box";
 import { useWindowDimensions } from "@/hooks/use-window-dimensions";
 import { useSizes } from "@/hooks/useSizes";
+import { useLayoutStore } from "@/store/layout";
 import { Tabs } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
 const TabsLayout = () => {
+	const isFullScreen = useLayoutStore((state) => state.isFullScreen);
 	const { isSmall } = useSizes();
 	const { width } = useWindowDimensions();
+	const isCompact = isSmall || isFullScreen;
 	return (
 		<Box className="flex-1 bg-background-app-white">
-			<DesktopHeader />
+			{!isFullScreen && <DesktopHeader />}
 			<View
-				className={isSmall ? "" : "relative flex justify-center"}
+				className={isCompact ? "" : "relative flex justify-center"}
 				style={
-					isSmall
+					isCompact
 						? styles.mobileContainer
 						: [styles.desktopContainer, { width }]
 				}

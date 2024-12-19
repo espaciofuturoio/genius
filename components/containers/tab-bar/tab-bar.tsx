@@ -13,6 +13,7 @@ import { useSizes } from "@/hooks/useSizes";
 import type { Href } from "expo-router";
 import { router } from "expo-router";
 import { TabBarButton } from "./tab-bar-button";
+import { useLayoutStore } from "@/store/layout";
 
 const TAB_BAR_HORIZONTAL_PADDING = 12;
 
@@ -36,6 +37,7 @@ export const BottomTabBar = ({
 }: BottomTabBarProps) => {
 	const { isSmall } = useSizes();
 	const opacity = useSharedValue(1);
+	const isTabBarVisible = useLayoutStore((state) => state.isTabBarVisible);
 
 	const animatedStyle = useAnimatedStyle(() => ({
 		opacity: opacity.value,
@@ -74,6 +76,8 @@ export const BottomTabBar = ({
 	useEffect(() => {
 		updateTabPositionX();
 	}, [state.index, dimensions, updateTabPositionX]);
+
+	if (!isTabBarVisible) return null;
 
 	return (
 		<Animated.View
